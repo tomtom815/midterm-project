@@ -1,20 +1,25 @@
 <?php
     class Database{
         // DB Params
-
+        private $url;
+        private $dbparts;
+        private $hostname;
+        private $username;
+        private $password
+        private $database;
         private $conn;
 
 
         // DB connect
         public function connect() {
             // if creating a Heroku connection, this is straight from the dev center link: 
-            $url = getenv('JAWSDB_URL');
-            $dbparts = parse_url($url);
+            $this->url = getenv('JAWSDB_URL');
+            $this->dbparts = parse_url($url);
         
-            $hostname = $dbparts['host'];
-            $username = $dbparts['user'];
-            $password = $dbparts['pass'];
-            $database = ltrim($dbparts['path'],'/');
+            $this->hostname = $dbparts['host'];
+            $this->username = $dbparts['user'];
+            $this->password = $dbparts['pass'];
+            $this->database = ltrim($dbparts['path'],'/');
             //You cannot do the above for your local dev environment, just Heroku
         
             // Create your new PDO connection here
