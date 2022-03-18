@@ -2,19 +2,19 @@
     class Database{
         // DB Params
         
-        private $hostname = 'x8autxobia7sgh74.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
-        private $username = 'vys4c4kcbifex17h';
-        private $password = 'seye1av40qv361an';
-        private $database = 'jqllxwqtcfrc3a98';
         private $conn;
 
 
         // DB connect
         public function connect() {
+            $hostname = 'x8autxobia7sgh74.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
+            $username = 'vys4c4kcbifex17h';
+            $password = 'seye1av40qv361an';
+            $database = 'jqllxwqtcfrc3a98';
             // Create your new PDO connection here
             // This is also from the Heroku docs showing the PDO connection: 
             try {
-                $this->conn = new PDO("mysql:host=$this->hostname;dbname=$this->database", $this->username, $this->password);
+                $this->conn = new PDO("mysql:host= $hostname;dbname=$database", $username, $password);
               // set the PDO error mode to exception
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 echo "Connected successfully";
