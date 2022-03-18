@@ -14,7 +14,7 @@
             // Create your new PDO connection here
             // This is also from the Heroku docs showing the PDO connection: 
             try {
-                $this->conn = new PDO("mysql:host= $hostname;dbname=$database", $username, $password);
+                $this->conn = new PDO("mysql://vys4c4kcbifex17h:seye1av40qv361an@x8autxobia7sgh74.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/jqllxwqtcfrc3a98");
               // set the PDO error mode to exception
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 echo "Connected successfully";
