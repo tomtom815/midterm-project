@@ -5,10 +5,10 @@
         $url = getenv('JAWSDB_URL');
         $dbparts = parse_url($url);
 
-        private $host = $dbparts['host'];
-        private $username = $dbparts['user'];
-        private $password = $dbparts['pass'];
-        private $db_name = ltrim($dbparts['path'],'/');    
+        private $host = getenv('HOST');
+        private $username = getenv('USER');
+        private $password = getenv('PASS');
+        private $db_name = getenv('DB');    
         private $conn;
 
 
