@@ -5,10 +5,10 @@
         $url = getenv('JAWSDB_URL');
         $dbparts = parse_url($url);
 
-        private $host = getenv('HOST');
-        private $username = getenv('USER');
-        private $password = getenv('PASS');
-        private $db_name = getenv('DB');    
+        private $host = 'x8autxobia7sgh74.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
+        private $username = 'vys4c4kcbifex17h';
+        private $password = 'seye1av40qv361an';
+        private $db_name = 'jqllxwqtcfrc3a98';    
         private $conn;
 
 
