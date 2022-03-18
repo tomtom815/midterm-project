@@ -11,10 +11,10 @@
             $url = getenv('JAWSDB_URL');
             $dbparts = parse_url($url);
         
-            $hostname = $dbparts['host'];
-            $username = $dbparts['user'];
-            $password = $dbparts['pass'];
-            $database = ltrim($dbparts['path'],'/');
+            $hostname = getenv("HOST");
+            $username = getenv("USER");
+            $password = getenv("PASS");
+            $database = getenv("DB");
         
             // Create your new PDO connection here
             // This is also from the Heroku docs showing the PDO connection: 
