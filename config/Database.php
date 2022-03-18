@@ -4,7 +4,7 @@
         
         private $hostname;
         private $username;
-        private $password
+        private $password;
         private $database;
         private $conn;
 
