@@ -24,12 +24,15 @@ $author->author = $data->author;
 
 //Create Author
 if($author->create()){
-    echo json_encode(
-        array('message' => 'Author Created')
+    //Create array
+    $author_arr = array(
+        'id' => $author->id,
+        'author' => $author->author
     );
+    print_r(json_encode($author_arr));
 }else{
     echo json_encode(
-        array('message' => 'Author Not Created')
+        array('message' => 'Missing Required Parameters')
     );
 }
 

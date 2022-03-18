@@ -24,12 +24,16 @@ $category->category = $data->category;
 
 //Create Category
 if($category->create()){
-    echo json_encode(
-        array('message' => 'Category Created')
+    
+    //Create array
+    $category_arr = array(
+        'id' => $category->id,
+        'category' => $category->category
     );
+    print_r(json_encode($category_arr));
 }else{
     echo json_encode(
-        array('message' => 'Category Not Created')
+        array('message' => 'Missing Required Parameters')
     );
 }
 

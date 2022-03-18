@@ -61,6 +61,7 @@ public function read_single(){
     $this->author = $row['author'];
 }
 
+
 //Create a category
 public function create(){
     //Create query
@@ -78,8 +79,10 @@ public function create(){
 
     //Execute query
     if($stmt->execute()){
-        return true;
+        $this->id =  $this->conn->lastInsertId();
+        return  true;
     }
+
 
     //Print error if something goes wrong
     printf("Error: %s. \n", $stmt->error);

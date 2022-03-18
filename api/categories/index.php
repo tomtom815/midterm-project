@@ -7,17 +7,17 @@ if ($method === 'OPTIONS') {
     header('Access-Control-Allow-Headers: Origin, Accept, Content-Type, X-Requested-With');
 };
 
-if($_SERVER['REQUEST_METHOD'] == "GET"){
+if($method === "GET"){
     if (isset($_GET['id'])){
         include_once('read_single.php');
     }else{
         include_once('read.php');
     }
-}else if($_SERVER['REQUEST_METHOD'] == "POST"){
+}else if($method === "POST"){
     include_once('create.php');
-}else if($_SERVER['REQUEST_METHOD'] == "PUT"){
+}else if($method === "PUT"){
     include_once('update.php');
-}else if($_SERVER['REQUEST_METHOD'] == "DELETE"){
+}else if($method === "DELETE"){
     include_once('delete.php');
 };
 

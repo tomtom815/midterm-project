@@ -25,11 +25,11 @@ $quote->id = $data->id;
 //Delete quote
 if($quote->delete()){
     echo json_encode(
-        array('message' => 'Quote Deleted')
+        array('Quote Deleted' => $quote->id)
     );
 }else{
     echo json_encode(
-        array('message' => 'Quote Not Deleted')
+        array('message' => 'No Quotes Found')
     );
 }
 

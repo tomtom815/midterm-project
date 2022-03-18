@@ -29,5 +29,10 @@
     );
 
     //Make JSON
-    print_r(json_encode($quote_arr));
+    if($quote->quote != null){
+        print_r(json_encode($quote_arr));
+    }else{
+        //No quotes
+        echo 'No Quotes Found';
+    }
 ?>

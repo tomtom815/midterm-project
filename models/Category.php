@@ -77,6 +77,7 @@ public function create(){
 
     //Execute query
     if($stmt->execute()){
+        $this->id =  $this->conn->lastInsertId();
         return true;
     }
 

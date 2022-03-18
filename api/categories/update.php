@@ -26,9 +26,12 @@ $category->category = $data->category;
 
 //Update category
 if($category->update()){
-    echo json_encode(
-        array('message' => 'Category Updated')
+    //Create array
+    $category_arr = array(
+        'id' => $category->id,
+        'category' => $category->category
     );
+    print_r(json_encode($category_arr));
 }else{
     echo json_encode(
         array('message' => 'Category Not Updated')

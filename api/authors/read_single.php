@@ -25,6 +25,11 @@
         'author' => $author->author
     );
 
-    //Make JSON
+   //Make JSON
+    if($author->author != null){
     print_r(json_encode($author_arr));
+    }else{
+    //No quotes
+    echo 'authorId Not Found';
+}
 ?>

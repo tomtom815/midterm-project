@@ -26,5 +26,10 @@
     );
 
     //Make JSON
-    print_r(json_encode($category_arr));
+    if($category->category != null){
+        print_r(json_encode($category_arr));
+    }else{
+        //No quotes
+        echo 'categoryId Not Found';
+    }
 ?>
