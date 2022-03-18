@@ -1,29 +1,25 @@
 <?php
     class Database{
         // DB Params
-        
+        private $host = "x8autxobia7sgh74.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
+        private $db_name = "jqllxwqtcfrc3a98";
+        private $username = "vys4c4kcbifex17h";
+        private $password = "seye1av40qv361an";
         private $conn;
 
 
         // DB connect
-        public function connect() {
-            $hostname = 'x8autxobia7sgh74.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
-            $username = 'vys4c4kcbifex17h';
-            $password = 'seye1av40qv361an';
-            $database = 'jqllxwqtcfrc3a98';
-            // Create your new PDO connection here
-            // This is also from the Heroku docs showing the PDO connection: 
-            try {
-                $this->conn = new PDO("mysql://vys4c4kcbifex17h:seye1av40qv361an@x8autxobia7sgh74.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/jqllxwqtcfrc3a98");
-              // set the PDO error mode to exception
+        public function connect(){
+            $this->conn = null;
+
+            try{
+                $this->conn = new PDO('mysql:host =' . $this->host . ';dbname=' . $this->db_name, $this->username, $this->password);
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                echo "Connected successfully";
+            }catch(PDOException $e){
+                echo 'Connection Error: ' . $e->getMessage();
             }
-            catch(PDOException $e)
-            {
-                echo "Connection failed: " . $e->getMessage();
-            }
-            // We used this PDO connection format in previous weeks - reference w3schools.com
+            return $this->conn;
+
         }
     }
 ?>
