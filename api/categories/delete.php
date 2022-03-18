@@ -25,7 +25,7 @@ $category->id = $data->id;
 //Delete category
 if($category->delete()){
     echo json_encode(
-        array('Category Deleted' => $category->id)
+        array('Category Deleted' => intval($category->id))
     );
 }else{
     echo json_encode(

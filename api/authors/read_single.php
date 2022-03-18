@@ -21,7 +21,7 @@
 
     //Create array
     $author_arr = array(
-        'id' => $author->id,
+        'id' => intval($author->id),
         'author' => $author->author
     );
 
@@ -30,6 +30,7 @@
     print_r(json_encode($author_arr));
     }else{
     //No quotes
-    echo 'authorId Not Found';
+    $err_arr = array('message' => 'authorId Not Found');
+    print_r(json_encode($err_arr));
 }
 ?>

@@ -1,14 +1,12 @@
 <?php
     class Database{
         // DB Params
-        private $host = "x8autxobia7sgh74.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
-        private $db_name = "jqllxwqtcfrc3a98";
-        private $username = "vys4c4kcbifex17h";
-        private $password = "seye1av40qv361an";
+        private $host = "localhost";
+        private $db_name = "quotesdb";
+        private $username = "root";
+        private $password = "1234";
         private $conn;
 
-
-        // DB connect
         public function connect(){
             $this->conn = null;
 
@@ -22,4 +20,6 @@
 
         }
     }
+
+    
 ?>

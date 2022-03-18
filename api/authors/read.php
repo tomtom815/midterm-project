@@ -22,16 +22,16 @@
     if($num > 0){
         //Post array
         $auth_arr = array();
-        $auth_arr['data'] = array();
+        
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)){
             extract($row);
             $auth_item = array(
-                'id' => $id,
+                'id' => intval($id),
                 'author' => $author
             );
-            // Push to "data"
-            array_push($auth_arr['data'], $auth_item);
+            // Push to array
+            array_push($auth_arr, $auth_item);
         }
         //Turn to JSON & output
         echo json_encode($auth_arr);

@@ -21,10 +21,11 @@
 
     //Create array
     $quote_arr = array(
-        'id' => $quote->id,
-        'category' => $quote->category,
+        'id' => intval($quote->id),
+        'quote' => $quote->quote,
         'author' => $quote->author,
-        'quote' => $quote->quote
+        'category' => $quote->category
+        
         
     );
 
@@ -33,6 +34,7 @@
         print_r(json_encode($quote_arr));
     }else{
         //No quotes
-        echo 'No Quotes Found';
+        $err_arr = array('message' => 'No Quotes Found');
+    print_r(json_encode($err_arr));
     }
 ?>
