@@ -1,27 +1,28 @@
 <?php
-    class Database {
-    // Define the class properties here
-    // private $conn; for example 
-
-    public function connect() {
+    class Database{
+        // DB Params
         $url = getenv('JAWSDB_URL');
         $dbparts = parse_url($url);
-        
+
         $hostname = $dbparts['host'];
         $username = $dbparts['user'];
         $password = $dbparts['pass'];
         $database = ltrim($dbparts['path'],'/');
-        $conn;
+        private $conn;
 
-      // Create your new PDO connection here
-      // This is also from the Heroku docs showing the PDO connection: 
-        // Create connection
-        $this->conn = new mysqli($hostname, $username, $password, $database);
+        public function connect(){
+            $this->conn = null;
 
-        // Check connection
-        if ($this->conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+            try{
+                $this->conn = new mysqli($this->hostname, $this->username, $this->password, $this->database);
+                $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            }catch(PDOException $e){
+                echo 'Connection Error: ' . $e->getMessage();
+            }
+            return $this->conn;
+
         }
-        echo "Connection was successfully established!";
-    };
+    }
+
+    
 ?>
