@@ -23,5 +23,5 @@
             die("Connection failed: " . $conn->connect_error);
         }
         echo "Connection was successfully established!";
-    }
+    };
 ?>
