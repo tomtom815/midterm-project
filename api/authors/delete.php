@@ -25,7 +25,7 @@ $author->id = $data->id;
 //Delete author
 if($author->delete()){
     echo json_encode(
-        array('Author Deleted' => intval($author->id))
+        array('id' => $author->id)
     );
 }else{
     echo json_encode(
