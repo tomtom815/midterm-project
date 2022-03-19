@@ -1,25 +1,33 @@
 <?php
-    class Database{
-        // DB Params
-        private $host = "localhost";
-        private $db_name = "quotesdb";
-        private $username = "root";
-        private $password = "1234";
-        private $conn;
+    class Database {
+    // Define the class properties here
+    // private $conn; for example 
 
-        public function connect(){
-            $this->conn = null;
+    public function connect() {
+      // if creating a Heroku connection, this is straight from the dev center link: 
+        $url = getenv('JAWSDB_URL');
+        $dbparts = parse_url($url);
 
-            try{
-                $this->conn = new PDO('mysql:host =' . $this->host . ';dbname=' . $this->db_name, $this->username, $this->password);
-                $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            }catch(PDOException $e){
-                echo 'Connection Error: ' . $e->getMessage();
-            }
-            return $this->conn;
+        $hostname = $dbparts['host'];
+        $username = $dbparts['user'];
+        $password = $dbparts['pass'];
+        $database = ltrim($dbparts['path'],'/');
 
+      // Create your new PDO connection here
+      // This is also from the Heroku docs showing the PDO connection: 
+        try {
+        $conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password);
+        // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        echo "Connected successfully";
         }
+        catch(PDOException $e)
+        {
+        echo "Connection failed: " . $e->getMessage();
+        }
+      // We used this PDO connection format in previous weeks - reference w3schools.com
     }
+        } 
 
     
 ?>
