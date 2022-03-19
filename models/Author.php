@@ -73,12 +73,16 @@ public function create(){
 
     //Clean data
     $this->author = htmlspecialchars(strip_tags($this->author));
-    
+    //Check if author is empty
+    if($this->author == null){
+        return false;
+    }
     //Bind data
     $stmt->bindParam(':author', $this->author);
+    
 
     //Execute query
-    if($stmt->execute() && $this->author != null){
+    if($stmt->execute()){
         $this->id =  $this->conn->lastInsertId();
         return  true;
     }
