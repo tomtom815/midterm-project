@@ -27,7 +27,7 @@ if($category->create()){
     
     //Create array
     $category_arr = array(
-        'id' => intval($category->id),
+        'id' => $category->id,
         'category' => $category->category
     );
     print_r(json_encode($category_arr));

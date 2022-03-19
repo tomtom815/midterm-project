@@ -26,7 +26,7 @@ $author->author = $data->author;
 if($author->create()){
     //Create array
     $author_arr = array(
-        'id' => intval($author->id),
+        'id' => $author->id,
         'author' => $author->author
     );
     print_r(json_encode($author_arr));
