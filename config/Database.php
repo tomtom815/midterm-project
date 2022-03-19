@@ -7,7 +7,7 @@
         private $hostname = "x8autxobia7sgh74.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
         private $username = "vys4c4kcbifex17h";
         private $password = getenv("PASS");
-        private $database = "jqllxwqtcfrc3a98"
+        private $database = "jqllxwqtcfrc3a98";
         private $conn;
 
         public function connect(){
