@@ -29,7 +29,7 @@ $quote->categoryId = $data->categoryId;
 if($quote->create()){
     
     $quote_arr = array(
-        'id' => $quote->conn->lastInsertId();,
+        'id' => $quote->conn->lastInsertId(),
         'categoryId' => $quote->categoryId,
         'authorId' => $quote->authorId,
         'quote' => $quote->quote
