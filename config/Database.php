@@ -1,15 +1,16 @@
 <?php
     class Database{
         // DB Params
-        /*private $url = getenv('JAWSDB_URL');
-        private $dbparts = parse_url($url);*/
+
 
         private $hostname = "x8autxobia7sgh74.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
         private $username = "vys4c4kcbifex17h";
-        private $password = getenv("PASS");
+        private $password;
         private $database = "jqllxwqtcfrc3a98";
         private $conn;
-
+        public function __construct(){
+            $password = getenv("PASS");   
+        }
         public function connect(){
             $this->conn = null;
 
