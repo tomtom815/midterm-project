@@ -6,7 +6,7 @@
 
         private $hostname = "x8autxobia7sgh74.cbetxkdyhwsb.us-east-1.rds.amazonaws.com";
         private $username = "vys4c4kcbifex17h";
-        private $password = "tbtixrj0pak8ol19";
+        private $password = $_ENV['PASS'];
         private $database = "jqllxwqtcfrc3a98";
         private $conn;
 
