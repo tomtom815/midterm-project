@@ -78,7 +78,7 @@ public function create(){
     $stmt->bindParam(':author', $this->author);
 
     //Execute query
-    if($stmt->execute()){
+    if($stmt->execute() && $this->author != null){
         $this->id =  $this->conn->lastInsertId();
         return  true;
     }
